@@ -1,21 +1,10 @@
 ---
 layout: post
-title: "开始Blog旅程"
-content: "aaaa"
+title: "Get Start"
 date: 2013-03-17 18:44
 comments: true
 categories: 
 ---
-**Hello Octopress!**
-This an example post for more information see:
-asd
-``` ruby Discover if a number is prime http://www.noulakaz.net/weblog/2007/03/18/a-regular-expression-to-check-for-prime-numbers/ Source Article
-class Fixnum
-  def prime?
-    ('1' * self) !~ /^1?$|^(11+?)\1+$/
-  end
-end
-```
-{% codeblock %}
-Awesome code snippet
-{% endcodeblock %}
+一直说要搞个blog写写东西，结果拖拖拉拉一直到现在，很早之前读 暗时间 的时候就想搭建一个blog去总结
+一下知识，如今终于开始这个旅程了。我分享的东西也主要是自己的总结，如果偶尔有些话能帮助到各位看官
+我也就心满意足了。
