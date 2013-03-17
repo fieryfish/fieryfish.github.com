@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[YuLong@coder]]></title>
   <link href="http://fieryfish.github.com/atom.xml" rel="self"/>
   <link href="http://fieryfish.github.com/"/>
-  <updated>2013-03-07T11:46:00+08:00</updated>
+  <updated>2013-03-17T22:08:50+08:00</updated>
   <id>http://fieryfish.github.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Yulong]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Get Start]]></title>
+    <link href="http://fieryfish.github.com/blog/2013/03/17/kai-shi-bloglu-cheng/"/>
+    <updated>2013-03-17T18:44:00+08:00</updated>
+    <id>http://fieryfish.github.com/blog/2013/03/17/kai-shi-bloglu-cheng</id>
+    <content type="html"><![CDATA[<p>一直说要搞个blog写写东西，结果拖拖拉拉一直到现在，很早之前读<a href="http://book.douban.com/subject/6709809/">暗时间</a>的时候就想搭建一个blog去总结一下知识，如今终于开始这个旅程了。我分享的东西也主要是自己的总结，如果偶尔有些话能帮助到各位看官我也就心满意足了。</p>
+
+<p>我相信只有经过思考的知识才是有价值的，所以我的文字肯定都是自己经过思考去码的，大家如果有什么想法意见也希望思考后再传达给我。最终目标希望大家把这里视作一个平台，能让大家在这里汲取、思考。</p>
+
+<p>为什么选择<strong>bboxers.com</strong>的域名？ 因为我喜欢节奏，尤其是bbox，我的偶像是<strong>alem</strong>。peace</p>
+]]></content>
+  </entry>
   
 </feed>
