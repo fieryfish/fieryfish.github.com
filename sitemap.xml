@@ -2,22 +2,26 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://fieryfish.github.com/blog/2013/03/17/kai-shi-bloglu-cheng/</loc>
-        <lastmod>2013-03-17T21:48:57+08:00</lastmod>
+        <lastmod>2013-03-22T01:36:52+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://fieryfish.github.com/blog/2013/10/08/to-xixi/</loc>
+        <lastmod>2013-10-08T05:26:36+01:00</lastmod>
     </url>
     <url>
         <loc>http://fieryfish.github.com/about/</loc>
-        <lastmod>2013-03-17T21:44:50+08:00</lastmod>
-    </url>
-    <url>
-        <loc>http://fieryfish.github.com/</loc>
-        <lastmod>2013-03-17T21:48:57+08:00</lastmod>
+        <lastmod>2013-03-22T01:36:52+00:00</lastmod>
     </url>
     <url>
         <loc>http://fieryfish.github.com/blog/archives/</loc>
-        <lastmod>2013-03-17T21:48:57+08:00</lastmod>
+        <lastmod>2013-10-08T05:26:36+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://fieryfish.github.com/</loc>
+        <lastmod>2013-10-08T05:26:36+01:00</lastmod>
     </url>
     <url>
         <loc>http://fieryfish.github.com/robots.txt</loc>
-        <lastmod>2013-03-07T11:08:29+08:00</lastmod>
+        <lastmod>2013-03-22T01:36:52+00:00</lastmod>
     </url>
 </urlset>
