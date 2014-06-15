@@ -4,7 +4,7 @@
   <title><![CDATA[YuLong@coder]]></title>
   <link href="http://fieryfish.github.com/atom.xml" rel="self"/>
   <link href="http://fieryfish.github.com/"/>
-  <updated>2014-02-03T16:04:35+00:00</updated>
+  <updated>2014-06-15T18:24:32+01:00</updated>
   <id>http://fieryfish.github.com/</id>
   <author>
     <name><![CDATA[Yulong]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Hello Machine Learning]]></title>
+    <link href="http://fieryfish.github.com/blog/2014/06/15/hello-machine-learning/"/>
+    <updated>2014-06-15T18:16:00+01:00</updated>
+    <id>http://fieryfish.github.com/blog/2014/06/15/hello-machine-learning</id>
+    <content type="html"><![CDATA[<p>asd</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Get Start]]></title>
