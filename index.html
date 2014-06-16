@@ -109,12 +109,12 @@ MathJax.Hub.Config({
 具体分类器是<a href="http://zh.wikipedia.org/zh/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8">朴素贝叶斯分类器</a>。
 效果在当时的我们看来，可以总结为三个字：碉堡了。我当时看到结果真的蛮震惊的，从前上课时候一扫而过的贝叶斯公式竟然有如此威力！</p>
 
-<p>首先，如果对于朴素贝叶斯或者贝叶斯公式还不打了解的同学，我的建议是：拿出一张纸和一支笔，去<a href="http://www.ruanYifeng.com/blog/2013/12/naive_baYes_classifier.html">阮一峰的blog</a>
+<p>首先，如果对于朴素贝叶斯或者贝叶斯公式还不打了解的同学，我的建议是：拿出一张纸和一支笔，去<a href="http://www.ruanyifeng.com/blog/2013/12/naive_bayes_classifier.html">阮一峰的blog</a>
 搜索、学习贝叶斯相关内容。（阮一峰的blog很有文采，强烈推荐之）。
 在我看到‘朴素贝叶斯(Naive Bayes)’这几个字以后，对我来讲比较敏感的字眼其实是‘朴素(Naive)’两个字，
 贝叶斯就贝叶斯，怎么还naive呢？
 其实，他表示的是一个简化的假设（assumption），即假设数据的特征(feature)/属性/字段是条件独立的(conditional independent)，why？
-举个例子（引用我的导师<a href="http://www.susseX.ac.uk/profiles/335583/publications">Novi</a>）：假设我们要训练样例是20个features组成的，每个feature都是取值二元的（即可以取0或者1，no或者Yes），
+举个例子（引用我的导师<a href="http://www.sussex.ac.uk/profiles/335583/publications">Novi</a>）：假设我们要训练样例是20个features组成的，每个feature都是取值二元的（即可以取0或者1，no或者yes），
 样例的类别（class label）也是二元的，</p>
 
 <script type="math/tex; mode=display">
@@ -144,7 +144,7 @@ P(X_{1},X_{2}..X_{20}|Y) := P(X_{1}|Y)\cdot P(X_{2}|Y)...P(X_{20}|Y)
 做这个任务的模型很简单，首先将地址分词，得到word1,word2,word3…,得到相应公式(以分成两个词为例)：</p>
 
 <script type="math/tex; mode=display">
-P(Y_{city}|X_{word1},X_{word2})=\frac{P(X_{word1}|Y_{city})\cdot P(X_{word2}|Y_{city})\cdot p_{Y_{city}}}{P(X_{word1})\cdot P(X_{word2})}
+P(Y_{city}|X_{word1},X_{word2})=\frac{P(X_{word1}|Y_{city})\cdot P(X_{word2}|Y_{city})\cdot (p_{Y_{city}})}{P(X_{word1})\cdot P(X_{word2})}
 </script>
 
 <p>由于分类时候，分子都是是一样的，可以不考虑。再假设
