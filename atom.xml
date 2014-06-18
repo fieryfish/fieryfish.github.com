@@ -4,7 +4,7 @@
   <title><![CDATA[YuLong@coder]]></title>
   <link href="http://fieryfish.github.com/atom.xml" rel="self"/>
   <link href="http://fieryfish.github.com/"/>
-  <updated>2014-06-16T22:21:11+01:00</updated>
+  <updated>2014-06-18T21:34:30+01:00</updated>
   <id>http://fieryfish.github.com/</id>
   <author>
     <name><![CDATA[Yulong]]></name>
@@ -12,6 +12,62 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[感知器(Perceptron)的边边角角]]></title>
+    <link href="http://fieryfish.github.com/blog/2014/06/18/perceptron/"/>
+    <updated>2014-06-18T19:17:00+01:00</updated>
+    <id>http://fieryfish.github.com/blog/2014/06/18/perceptron</id>
+    <content type="html"><![CDATA[<p>感知器是相当重要的，原因很简单，它是Network的基础，不论是ANN，SVM，他们都是基于感知器的。
+这也是为什么我在学校修Neural Network这门课时，光Perceptron的作业就占了50%的分数。
+算法很简单，看看图很容易理解。所以我在主要想谈谈这里面一些其他蛮有意思的东西。</p>
+
+<p>首先，想问下感知器的损失函数（loss function）的形式什么？
+在很多情况下，我们用到的损失函数形式都是这个样子的：(引用自<a href="http://www.sussex.ac.uk/sussexneuroscience/people/person/201607">Luc</a>课件)</p>
+
+<p><script type="math/tex">E(\bar{w})=\frac{1}{2}\Sigma(t_{i}-y_{i})^2</script> 
+(1)</p>
+
+<p>其中，y是感知器对于ith实例(instance)的输出(+1,-1)，t是ith实例的类别(+1,-1)。</p>
+
+<p>为什么对于线性可分数据，普遍的感知器的loss function的选择却变成了这个样子？</p>
+
+<p><script type="math/tex">E(\bar{w})=-\Sigma \bar{w} \cdot \bar{x_{i}} \cdot t_{i} </script>
+（for all misclassified $\bar{x_{i}}$） (2)</p>
+
+<p>其中w是权重，x是ith实例(instance)的值，t是ith实例的类别。</p>
+
+<p><img class="left" src="http://fieryfish.github.com/images/perceptron.png" width="350" height="350" title="image" alt="perceptron" /></p>
+
+<p>由这个图，我们可以看到，(2)式可以告诉我们更多误分类(misclassified)点的信息，
+具体来说，就是误分类点距离分界线(decision boundary)的远近正比于损失函数，这样损失函数越大，说明误分类点离得越远，反之亦然。
+而(1)式对于所有误分类点一概而论，显然没有(2)来的合理。</p>
+
+<p>至于更新法则：</p>
+
+<p><script type="math/tex">\bar{w}(t+1) = \bar{w}(t) + \eta \bar{x_{i}} \cdot t_{i} </script>
+（for all misclassified $\bar{x_{i}}$）</p>
+
+<p>(<a href="http://book.douban.com/subject/10590856/">统计学习方法</a>给出的形式)</p>
+
+<p>等价于:</p>
+
+<script type="math/tex; mode=display">\bar{w}(t+1) = \bar{w}(t) + \eta \bar{x_{i}} \cdot (t_{i}-y_{i}) </script>
+
+<p>$y_{i}$感知器对于ith实例的输出。</p>
+
+<p>(<a href="http://book.douban.com/subject/1102235/">机器学习(Tom Mitchell)</a>给出的形式)</p>
+
+<p>另外的一个问题，对于我们这个问题，我们应该用批量(batch)梯度下降还是随机(stochastic)梯度下降呢？</p>
+
+<p>我的答案是随机(stochastic)梯度下降吧。(<a href="http://www.quora.com/Machine-Learning/Whats-the-difference-between-gradient-descent-and-stochastic-gradient-descent">参考</a>)
+不过前提是数据线性可分，不然会导致不能收敛。</p>
+
+<p>这一次我们做了几个选择题，而大家也可以看到，Perceptron的模型(model)很简单，重点是要在适当的时刻选择一些适当的工具（如：loss function形式, batch/stochastic），
+这里，不得不说，ML是一个选择是世界，一个算法的好坏，往往不在于算法本身，而在于根据数据进行的选择，
+比如SVM，如果都是用默认参数，起初的效果一般都不是很理想，但是可以慢慢调节参数以后，大都会提高很明显。说了这么多，就是强调一下：<strong>选择</strong>很重要。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[概率模型probabilistic models (1)]]></title>
@@ -129,7 +185,8 @@ P(Y_{长春}|X_{朝阳区})\cdot P(Y_{长春}) < P(Y_{北京}|X_{朝阳区})\cdo
 开始慢慢来，之后就会很舒服了。2 <strong>直观理解</strong>。很多公式用一个图就解释的明明白白的。3 <strong>结合实践</strong>。看了不一定会明白，
 明白了不一定理解，理解了不一定会做，做的话可以去(Kaggle.com)练练手。4 <strong>讲给别人</strong>。
 我曾经问过我导师，我什么时候才能像你一样对于ML侃侃而谈，他笑着对我说:”等你可以把他讲给别人，让别人也理解，对于
-他们的问题你可以解答。”这，就是为什么我开始写这个博客吧，而且，这是捷径。</p>
+他们的问题你可以解答。”这，就是为什么我开始写这个博客吧，而且，这是捷径。
+5 <strong>基础知识</strong>,尽管数学面积很大，但至少梯度下降，贝叶斯这些必备知识要完全掌握。</p>
 
 ]]></content>
   </entry>
