@@ -117,6 +117,7 @@ MathJax.Hub.Config({
 然而这时你这第11个小猫小狗如果是noisy的，即误分类的，就也被‘记录’了下来，而每次发生feature不够用的情况，咱就增加一个feature，
 最后就相当于你用了10个feature记录下了100个小动物是小猫还是小狗而已，即使这里面有误分类的，也给无情的记录下来了。
 这种记录，对于其他待分类数据，是无用的。
+这也就是为什么Decision Tree要选择‘最短路径’，Concept Learning要选择合取式(Conjunctive normal form)而不是析取。
 <!--这就是为什么我们有了一系列像cross-validation的方法。--></p>
 
 <p><img class="left" src="/images/learning_overfitting.png" width="400" height="400" title="image" alt="Using too many features results in overfitting" /></p>
