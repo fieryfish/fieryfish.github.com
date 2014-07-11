@@ -1,0 +1,258 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>概率模型probabilistic Model(2) logistic回归 - YuLong@coder</title>
+	<meta name="author" content="Yulong">
+
+	
+	<meta name="description" content="故事是这样的，在概率模型世界，我们要面对的问题就是这样的一个公式：
+,
+其中，y是类别(class), $\bar{x}$是输入数据(input data)。
+在Naive Bayes里面我们已经看到了如何用Bayes公式搞定这个问题。
+这次，我们可以用个更直观的方式，怎么搞？
+这样？
+, &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="YuLong@coder" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<link href="/favicon.jpg" rel="shortcut icon">
+
+</head>
+
+<body>
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+	<header id="header" class="inner"><h1><a href="/">YuLong@coder</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+	<li><a href="/about">About me</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+	<li><a href="/about">About me</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:fieryfish.github.com">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:fieryfish.github.com">
+	</form>
+</nav>
+
+</header>
+	
+		
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">概率模型probabilistic Model(2) Logistic回归</h2>
+	<div class="entry-content"><p>故事是这样的，在概率模型世界，我们要面对的问题就是这样的一个公式：
+<script type="math/tex">p(y|\bar{x})</script>,
+其中，y是类别(class), $\bar{x}$是输入数据(input data)。
+在<a href="http://bboxers.com/blog/2014/06/16/probabilistic-models/">Naive Bayes</a>里面我们已经看到了如何用Bayes公式搞定这个问题。
+这次，我们可以用个更直观的方式，怎么搞？
+这样？
+<script type="math/tex">p(y|\bar{x})=w_{0}+\Sigma(w_{i} \cdot x_{i})</script>,
+左边很熟悉（probabilistic model），右边也很熟悉(linear model)，但是，放在一起总是怪怪的。
+计算机界有个名言，”Any problem in computer science can 
+be solved by adding a layer of indirection”
+这次，我们的’layer’就是logistic function。
+没听过的同学请先看<a href="http://en.wikipedia.org/wiki/Logistic_function">wiki</a>的解释。
+记住公式、记住图的样子，别问为啥。好了，再记住一个它的性质，1-$\theta(x) = \theta(-x)(\theta$表示logistic function)。对比图像看看，怎么样？很直观的一个性质吧。
+logistic function就是把右边那个linear model的范围(无穷)缩小到probabilistic model的范围([0,1])了，从而可以让我们用概率的方法搞定它。</p>
+
+<p>既然回归到了概率问题，那就用概率的方式解决。考虑一个普遍的binary问题：</p>
+
+<p><img class="left" src="/images/binary.png" width="400" height="400" title="image" alt="Binary" /></p>
+
+<p>它同样是<a href="http://en.wikipedia.org/wiki/Bernoulli_distribution">bernoulli distribution</a>。</p>
+
+<p>引入logistic function, 
+<script type="math/tex">\theta(\bar{w}\cdot \bar{x})= \theta(w_{0}+\Sigma(w_{i} \cdot x_{i}))=\frac{1}{1+exp(-(w_{0}+\Sigma(w_{i} \cdot x_{i})))}</script></p>
+
+<p>把它带入上面的方程，得到了:
+<script type="math/tex">P(y=+1|\bar{w}\cdot \bar{x})= \frac{1}{1+exp(-(w_{0}+\Sigma(w_{i} \cdot x_{i})))}</script></p>
+
+<p>和
+<script type="math/tex">P(y=-1|\bar{w}\cdot \bar{x})=1-\frac{1}{1+exp(-(w_{0}+\Sigma(w_{i} \cdot x_{i})))}</script></p>
+
+<p>然后：
+<script type="math/tex">\frac{P(y=+1|\bar{w}\cdot \bar{x})}{P(y=-1|\bar{w}\cdot \bar{x})}= exp(w_{0}+\bar{w}\cdot \bar{x})</script></p>
+
+<p>两边取对数：
+<script type="math/tex">ln\frac{P(y=+1|\bar{w}\cdot \bar{x})}{P(y=-1|\bar{w}\cdot \bar{x})}=w_{0}+\bar{w}\cdot \bar{x}</script></p>
+
+<p>很神奇吧？分类器出现了！这种神奇当然要归功于logistic function和它的性质喽！</p>
+
+<p>然后呢，就是训练喽。这里用到的就是概率里面常用到的Maximum likelihood方法。一些推导我直接copy了，请注意
+最后的那个就是目标函数。</p>
+
+<p><img class="left" src="/images/logis.png" width="600" height="400" title="image" alt="推导" /></p>
+
+<p>问题又被转化为了最优化问题，它是convex的，有最优解，用Gradient Descent就完事了~这里不是课本，就是说这个思路拉。
+再补一句，logistic regression会有过拟合问题，需要regularization。
+经典方式又出现了: argmin(目标函数+regularization)</p>
+
+<p>logistic regression在我看来是一个有很多标签的分类器。1 人们经常用它作为Predictive model的代表，
+跟generative model的代表naive Bayes去比较(<a href="http://ai.stanford.edu/~ang/papers/nips01-discriminativegenerative.pdf">比如这篇</a>)。
+Predictive model &amp; generative model请大家好好注意一下，这个
+区别存在于很多其他地方哦，比如 HMM, MEMM/CRF。 
+2 它的名字虽然包含regression，但是它做的事情是classification。
+3 它是个线性分类器。</p>
+
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-11T00:18:00+01:00" pubdate data-updated="true">Jul 11<span>th</span>, 2014</time></div>
+	<div class="tags">
+
+</div>
+	
+		<div class="comments"><a href="/blog/2014/07/11/logister/#disqus_thread">Comments</a></div>
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2014
+
+    Yulong
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'bboxerscom';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://fieryfish.github.com/blog/2014/07/11/logister/';
+        var disqus_url = 'http://fieryfish.github.com/blog/2014/07/11/logister/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44691622-3', 'bboxers.com');
+  ga('send', 'pageview');
+
+</script>
+    <!--<script type="text/javascript">-->
+        <!--var _gaq = _gaq || [];-->
+        <!--_gaq.push(['_setAccount', 'UA-44691622-3']);-->
+        <!--_gaq.push(['_setDomainName','bboxers.com']);-->
+        <!--_gaq.push(['_trackPageview']);-->
+
+        <!--(function() {-->
+            <!--var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;-->
+            <!--ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';-->
+            <!--var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);-->
+        <!--})();-->
+    <!--</script>-->
+
+
+
+</body>
+</html>
