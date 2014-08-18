@@ -7,9 +7,10 @@
 	<meta name="author" content="Yulong">
 
 	
-	<meta name="description" content="如果说以前的一些文章还有加入自己的思考的话，那这篇可能是最客观的表述。其实
-Gaussian graphical model(GGM)资料还真的蛮少的，我本来也想找找书籍去学习下，结果到最后还是
-要去看论文。当然，论文的力量就是可以把一个知识讲到令人发指的长， &hellip;">
+	<meta name="description" content="首先BIC是干什么的？用于比较在给定的数据下，比较不同模型的准则(criterion)。
+怎么比较呢？他会关注两件事情，一更好的拟合结果，二更少的参数。一很好理解，二这是要求
+一个相对更简单的模型去防止overfit这种事情。在想不起来的，请看这幅图。
+既然是比较模型，那它也属于model &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -94,6 +95,55 @@ MathJax.Hub.Config({
 		
 	
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2014/08/18/bic/">
+		
+			BIC(bayesian Information Criterion)</a>
+	</h2>
+	<div class="entry-content">
+		<p>首先BIC是干什么的？用于比较在给定的数据下，比较不同模型的准则(criterion)。
+怎么比较呢？他会关注两件事情，一更好的拟合结果，二更少的参数。一很好理解，二这是要求
+一个相对更简单的模型去防止overfit这种事情。在想不起来的，请看这幅<a href="http://zoonek2.free.fr/UNIX/48_R/g883.png">图</a>。
+既然是比较模型，那它也属于model selection的范畴了。
+在<a href="http://en.wikipedia.org/wiki/Bayesian_information_criterion">wiki</a>上写了好多感觉还蛮啰嗦的，
+开始看了几遍也不怎么知道啥意思，其实主要的公式就是:(实例instance很多的情况下)</p>
+
+<script type="math/tex; mode=display">BIC = -2\cdot ln \hat{L}+k\cdot ln(n)</script>
+
+<p>$\hat{L}$是已经完成了像MLE这种参数估计以后，得到的最优参数的模型。k是参数的个数，n是实例的个数。
+一例胜千言，请大家直接翻到这个很棒的<a href="http://hea-www.cfa.harvard.edu/astrostat/Stat310_0910/dr_20100323_mle.pdf">ppt</a>，29页
+有一个简单的例子，相信看完这个例子的人基本也就明白是怎么回事了。</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-18T23:14:00+01:00" pubdate data-updated="true">Aug 18<span>th</span>, 2014</time></div>
+	<div class="tags">
+
+</div>
+	
+		<div class="comments"><a href="/blog/2014/08/18/bic//index.html#disqus_thread">Comments</a></div>
+	
+</div></article>
 
 
     <article class="post">
