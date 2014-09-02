@@ -114,13 +114,13 @@ be solved by adding a layer of indirection”
 记住公式、记住图的样子，别问为啥。好了，再记住一个它的性质，1-$\theta(x) = \theta(-x)(\theta$表示logistic function)。对比图像看看，怎么样？很直观的一个性质吧。
 logistic function就是把右边那个linear model的范围(无穷)缩小到probabilistic model的范围([0,1])了，从而可以让我们用概率的方法搞定它。</p>
 
-<p>既然回归到了概率问题，那就用概率的方式解决。考虑一个普遍的binary问题：</p>
+<p>既然回归到了概率问题，那就用概率的方式解决。考虑一个普遍的binary classification问题：</p>
 
 <p><img class="left" src="/images/binary.png" width="400" height="400" title="image" alt="Binary" /></p>
 
 <p>它同样是<a href="http://en.wikipedia.org/wiki/Bernoulli_distribution">bernoulli distribution</a>。</p>
 
-<p>引入logistic function, 
+<p>引入logistic function, 将<script type="math/tex">w_{0}+\Sigma(w_{i} \cdot x_{i})</script>带入到logistic function得到：
 <script type="math/tex">\theta(\bar{w}\cdot \bar{x})= \theta(w_{0}+\Sigma(w_{i} \cdot x_{i}))=\frac{1}{1+exp(-(w_{0}+\Sigma(w_{i} \cdot x_{i})))}</script></p>
 
 <p>把它带入上面的方程，得到了:
@@ -130,12 +130,12 @@ logistic function就是把右边那个linear model的范围(无穷)缩小到prob
 <script type="math/tex">P(y=-1|\bar{w}\cdot \bar{x})=1-\frac{1}{1+exp(-(w_{0}+\Sigma(w_{i} \cdot x_{i})))}</script></p>
 
 <p>然后：
-<script type="math/tex">\frac{P(y=+1|\bar{w}\cdot \bar{x})}{P(y=-1|\bar{w}\cdot \bar{x})}= exp(w_{0}+\bar{w}\cdot \bar{x})</script></p>
+<script type="math/tex">\frac{P(y=+1|\bar{w}\cdot \bar{x})}{P(y=-1|\bar{w}\cdot \bar{x})}= exp(w_{0}+\bar{w}\cdot \bar{x})</script>     (if &gt; 1 , 正例)</p>
 
 <p>两边取对数：
 <script type="math/tex">ln\frac{P(y=+1|\bar{w}\cdot \bar{x})}{P(y=-1|\bar{w}\cdot \bar{x})}=w_{0}+\bar{w}\cdot \bar{x}</script></p>
 
-<p>很神奇吧？分类器出现了！这种神奇当然要归功于logistic function和它的性质喽！</p>
+<p>很神奇吧？线性分类器出现了！它的decision boundary就是<script type="math/tex">w_{0}+\bar{w}\cdot \bar{x}</script>, 这种神奇当然要归功于logistic function和它的性质喽！</p>
 
 <p>然后呢，就是训练喽。这里用到的就是概率里面常用到的Maximum likelihood方法。一些推导我直接copy了，请注意
 最后的那个就是目标函数。</p>

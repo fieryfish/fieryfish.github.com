@@ -4,7 +4,7 @@
   <title><![CDATA[YuLong@coder]]></title>
   <link href="http://fieryfish.github.com/atom.xml" rel="self"/>
   <link href="http://fieryfish.github.com/"/>
-  <updated>2014-08-18T23:52:12+01:00</updated>
+  <updated>2014-09-02T11:15:09+01:00</updated>
   <id>http://fieryfish.github.com/</id>
   <author>
     <name><![CDATA[Yulong]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[BIC(bayesian information criterion)]]></title>
+    <title type="html"><![CDATA[BIC(bayesian information criterion)+likelihood function]]></title>
     <link href="http://fieryfish.github.com/blog/2014/08/18/bic/"/>
     <updated>2014-08-18T23:14:00+01:00</updated>
     <id>http://fieryfish.github.com/blog/2014/08/18/bic</id>
@@ -27,9 +27,32 @@
 
 <script type="math/tex; mode=display">BIC = -2\cdot ln \hat{L}+k\cdot ln(n)</script>
 
-<p>$\hat{L}$是已经完成了像MLE这种参数估计以后，得到的最优参数的模型。k是参数的个数，n是实例的个数。
+<p>$\hat{L}$是已经完成了像MLE这种参数估计以后，得到的最优参数的似然函数(Likelihood function)。k是参数的个数，n是实例的个数。
 一例胜千言，请大家直接翻到这个很棒的<a href="http://hea-www.cfa.harvard.edu/astrostat/Stat310_0910/dr_20100323_mle.pdf">ppt</a>，29页
 有一个简单的例子，相信看完这个例子的人基本也就明白是怎么回事了。</p>
+
+<p>这里有个很重要的叫做Likelihood function(似然函数)的概念，大家在Bayes rule里面应该也有看到过，然后在MLE(极大似然估计)里也有所耳闻。那么究竟它是怎么一回事呢？看个<a href="http://en.wikipedia.org/wiki/Likelihood_function">wiki</a>的例子，非常形象~
+在硬币游戏里，H代表head，正常来讲，投掷时候得到head的概率为<script type="math/tex">P_{H}=0.5</script>，那么投掷两次都是head的概率是：
+<script type="math/tex">P(HH | P_{H}=0.5) = 0.25</script>。如果用likelihood function去描述它，那么就是: <script type="math/tex">L(P_{H}=0.5 | HH)=P(HH | P_{H}=0.5) = 0.25</script>,
+它的含义并不是说给出了观察序列HH，我们得到概率<script type="math/tex">P_{H}=0.5</script>的概率是0.25。
+相应地：<script type="math/tex">L(P_{H}=1 | HH)=P(HH | P_{H}=1) = 1</script>,它的含义也并不是说给出了观察序列HH，我们得到概率<script type="math/tex">P_{H}=1</script>的概率是1,
+likelihood function不是概率密度（probability density function），下面的图便是我们该问题里<script type="math/tex">P_{H}</script>的分布，可以看出
+在观察序列都是HH的时候，我们更愿意相信<script type="math/tex">P_{H}=1</script>，这便完成了一次MLE的过程，在估计参数<script type="math/tex">P_{H}</script>的时候，我们更愿意相信
+这个参数的取值是1。</p>
+
+<p><img class="left" src="http://fieryfish.github.com/images/LikelihoodFunctionAfterHH.png" width="600" height="600" title="image" alt="The likelihood function for estimating the probability of a coin landing heads-up without prior knowledge after observing HH" /></p>
+
+<p>另一方面，后验概率(Posterior probability)相对于likelihood function是一个逆过程。
+如果是后验概率，这个问题就是<script type="math/tex">P(P_{H} | HH)</script>，其实没什么特别的，知道这个概念就好了，
+看到Bayes Rule:</p>
+
+<script type="math/tex; mode=display">
+P(A|B)=\frac{P(B|A)P(A)}{P(B)}
+</script>
+
+<p>大家也就知道,后验概率是<script type="math/tex">P(A|B)</script>，似然函数是<script type="math/tex">P(B|A)</script>
+,先验概率是<script type="math/tex">P(A)</script>.</p>
+
 ]]></content>
   </entry>
   
@@ -103,13 +126,13 @@ be solved by adding a layer of indirection”
 记住公式、记住图的样子，别问为啥。好了，再记住一个它的性质，1-$\theta(x) = \theta(-x)(\theta$表示logistic function)。对比图像看看，怎么样？很直观的一个性质吧。
 logistic function就是把右边那个linear model的范围(无穷)缩小到probabilistic model的范围([0,1])了，从而可以让我们用概率的方法搞定它。</p>
 
-<p>既然回归到了概率问题，那就用概率的方式解决。考虑一个普遍的binary问题：</p>
+<p>既然回归到了概率问题，那就用概率的方式解决。考虑一个普遍的binary classification问题：</p>
 
 <p><img class="left" src="http://fieryfish.github.com/images/binary.png" width="400" height="400" title="image" alt="Binary" /></p>
 
 <p>它同样是<a href="http://en.wikipedia.org/wiki/Bernoulli_distribution">bernoulli distribution</a>。</p>
 
-<p>引入logistic function, 
+<p>引入logistic function, 将<script type="math/tex">w_{0}+\Sigma(w_{i} \cdot x_{i})</script>带入到logistic function得到：
 <script type="math/tex">\theta(\bar{w}\cdot \bar{x})= \theta(w_{0}+\Sigma(w_{i} \cdot x_{i}))=\frac{1}{1+exp(-(w_{0}+\Sigma(w_{i} \cdot x_{i})))}</script></p>
 
 <p>把它带入上面的方程，得到了:
@@ -119,12 +142,12 @@ logistic function就是把右边那个linear model的范围(无穷)缩小到prob
 <script type="math/tex">P(y=-1|\bar{w}\cdot \bar{x})=1-\frac{1}{1+exp(-(w_{0}+\Sigma(w_{i} \cdot x_{i})))}</script></p>
 
 <p>然后：
-<script type="math/tex">\frac{P(y=+1|\bar{w}\cdot \bar{x})}{P(y=-1|\bar{w}\cdot \bar{x})}= exp(w_{0}+\bar{w}\cdot \bar{x})</script></p>
+<script type="math/tex">\frac{P(y=+1|\bar{w}\cdot \bar{x})}{P(y=-1|\bar{w}\cdot \bar{x})}= exp(w_{0}+\bar{w}\cdot \bar{x})</script>     (if &gt; 1 , 正例)</p>
 
 <p>两边取对数：
 <script type="math/tex">ln\frac{P(y=+1|\bar{w}\cdot \bar{x})}{P(y=-1|\bar{w}\cdot \bar{x})}=w_{0}+\bar{w}\cdot \bar{x}</script></p>
 
-<p>很神奇吧？分类器出现了！这种神奇当然要归功于logistic function和它的性质喽！</p>
+<p>很神奇吧？线性分类器出现了！它的decision boundary就是<script type="math/tex">w_{0}+\bar{w}\cdot \bar{x}</script>, 这种神奇当然要归功于logistic function和它的性质喽！</p>
 
 <p>然后呢，就是训练喽。这里用到的就是概率里面常用到的Maximum likelihood方法。一些推导我直接copy了，请注意
 最后的那个就是目标函数。</p>
