@@ -7,10 +7,9 @@
 	<meta name="author" content="Yulong">
 
 	
-	<meta name="description" content="首先BIC是干什么的？用于比较在给定的数据下，比较不同模型的准则(criterion)。
-怎么比较呢？他会关注两件事情，一更好的拟合结果，二更少的参数。一很好理解，二这是要求
-一个相对更简单的模型去防止overfit这种事情。在想不起来的，请看这幅图。
-既然是比较模型，那它也属于model &hellip;">
+	<meta name="description" content="RandomForest在我印象里，是一个碉堡了的算法，因为用起来很简单，几乎不需要怎么调试就直接得到了很好地效果。
+所以这也是为什么在Kaggle的Titanic分类竞赛专门拿RandomForest举例.
+在学习RandomForest之前，请保证大家已经基本掌握了Decision Tree &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -95,6 +94,60 @@ MathJax.Hub.Config({
 		
 	
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2014/09/01/randomforest/">
+		
+			RandomForest(随机森林)</a>
+	</h2>
+	<div class="entry-content">
+		<p>RandomForest在我印象里，是一个碉堡了的算法，因为用起来很简单，几乎不需要怎么调试就直接得到了很好地效果。
+所以这也是为什么在Kaggle的Titanic分类竞赛专门拿RandomForest<a href="http://www.kaggle.com/c/titanic-gettingStarted/details/getting-started-with-random-forests">举例</a>.
+在学习RandomForest之前，请保证大家已经基本掌握了Decision Tree。<a href="http://www.quora.com/How-do-random-forests-work-in-laymans-terms">这里</a>有个很好的对于RandomForest的解释。</p>
+
+<p>它的主要思想是将Decision Tree 聚合(ensemble)。根据<a href="http://en.wikipedia.org/wiki/Random_forest">wiki</a>,它的实现主要
+通过了bagging和Random subspace method两个方法。为什么要用这两个方法呢? Randomness!
+前者是针对训练数据的随机选择，比如1000个实例中随机选择800个去生成树。
+它的强悍之处在我看来是因为wiki里的这句话 “Increasing the number of trees tends to decrease the variance of the model,
+without increasing the bias.” Decision Tree的问题之一就是容易overfitting,显然bagging很好的解决了这个问题（更多关于overfitting请参考<a href="http://bboxers.com/blog/2014/06/29/curse-learning-curve/">维数灾难到学习曲线</a>)。
+后者是针对feature去进行选择，比如从100个
+features里面去选择50个,这使得每一个子树都不完全相同。之后再根据正常的Decision Trees算法去生成树，这里有个参数（free parameter）需要用户选择，
+就是生成多少个trees，一般来讲，当然是越多越好了，最后根据各个trees的结果去投票(vote)，算出最终的结果。
+但是tree多了以后运算会超级慢，这是个不得不要考虑进去的问题，准确+慢 vs 不准确+快？
+这时候，Out-of-bag error就是判定生成多大树的标准之一了，<a href="http://www.quora.com/What-is-the-out-of-bag-error-in-Random-Forests">quora</a>有个很好的解释，
+大概就是说，在我们bagging的时候，从1000个实例选了800个，那么剩下的那200就组成了out-of-bag examples，
+我们可以把这200个实例组成测试的trees，这样通过测试trees就可以大概知道RandomForest的精确度。</p>
+
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-01T22:57:00+01:00" pubdate data-updated="true">Sep 1<span>st</span>, 2014</time></div>
+	<div class="tags">
+
+</div>
+	
+		<div class="comments"><a href="/blog/2014/09/01/randomforest//index.html#disqus_thread">Comments</a></div>
+	
+</div></article>
 
 
     <article class="post">
@@ -824,51 +877,10 @@ P(Y_{长春}|X_{朝阳区})\cdot P(Y_{长春}) < P(Y_{北京}|X_{朝阳区})\cdo
 	
 </div></article>
 
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/03/17/kai-shi-bloglu-cheng/">
-		
-			Get Start</a>
-	</h2>
-	<div class="entry-content">
-		<p>一直说要搞个blog写写东西，结果拖拖拉拉一直到现在，很早之前读<a href="http://book.douban.com/subject/6709809/">暗时间</a>的时候就想搭建一个blog去总结一下知识，如今终于开始这个旅程了。我分享的东西也主要是自己的总结，如果偶尔有些话能帮助到各位看官我也就心满意足了。</p>
-
-<p>我相信只有经过思考的知识才是有价值的，所以我的文字肯定都是自己经过思考去码的，大家如果有什么想法意见也希望思考后再传达给我。最终目标希望大家把这里视作一个平台，能让大家在这里汲取、思考。</p>
-
-<p>为什么选择<strong>bboxers.com</strong>的域名？ 因为我喜欢节奏，尤其是bbox，我的偶像是<strong>alem</strong>。peace</p>
-
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-03-17T18:44:00+00:00" pubdate data-updated="true">Mar 17<span>th</span>, 2013</time></div>
-	<div class="tags">
-
-</div>
-	
-		<div class="comments"><a href="/blog/2013/03/17/kai-shi-bloglu-cheng//index.html#disqus_thread">Comments</a></div>
-	
-</div></article>
-
 <nav id="pagenavi">
     
+    
+        <a href="/blog/page/2/" class="next">Next</a>
     
     <div class="center"><a href="/blog/archives">Blog Archives</a></div>
 </nav></div>

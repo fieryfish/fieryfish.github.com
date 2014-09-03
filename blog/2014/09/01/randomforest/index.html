@@ -3,11 +3,13 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Blog Archives - YuLong@coder</title>
+	<title>RandomForest(随机森林) - YuLong@coder</title>
 	<meta name="author" content="Yulong">
 
 	
-	<meta name="description" content="2014 RandomForest(随机森林) Sep 1 Comments BIC(bayesian information criterion)+likelihood function Aug 18 Comments 高斯图模型 Gaussian graphical model Jul 17 &hellip;">
+	<meta name="description" content="RandomForest在我印象里，是一个碉堡了的算法，因为用起来很简单，几乎不需要怎么调试就直接得到了很好地效果。
+所以这也是为什么在Kaggle的Titanic分类竞赛专门拿RandomForest举例.
+在学习RandomForest之前，请保证大家已经基本掌握了Decision Tree。 &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -91,192 +93,67 @@ MathJax.Hub.Config({
 	
 		
 	
-	<div id="content" class="inner">
-	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">RandomForest(随机森林)</h2>
+	<div class="entry-content"><p>RandomForest在我印象里，是一个碉堡了的算法，因为用起来很简单，几乎不需要怎么调试就直接得到了很好地效果。
+所以这也是为什么在Kaggle的Titanic分类竞赛专门拿RandomForest<a href="http://www.kaggle.com/c/titanic-gettingStarted/details/getting-started-with-random-forests">举例</a>.
+在学习RandomForest之前，请保证大家已经基本掌握了Decision Tree。<a href="http://www.quora.com/How-do-random-forests-work-in-laymans-terms">这里</a>有个很好的对于RandomForest的解释。</p>
 
-
-	
-	
-	<section class="archives"><h1 class="year">2014</h1>
-
-<article>
-	<h2 class="title"><a href="/blog/2014/09/01/randomforest/">RandomForest(随机森林)</a></h2>
-	<div class="meta">
-		<div class="date">Sep  1</div>
-		<div class="tags">
-
-</div>
-	    
-	    <div class="comments"><a href="/blog/2014/09/01/randomforest/#disqus_thread">Comments</a></div>
-	    
-	</div>
-</article>
-
-	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2014/08/18/bic/">BIC(bayesian information criterion)+likelihood function</a></h2>
-	<div class="meta">
-		<div class="date">Aug 18</div>
-		<div class="tags">
+<p>它的主要思想是将Decision Tree 聚合(ensemble)。根据<a href="http://en.wikipedia.org/wiki/Random_forest">wiki</a>,它的实现主要
+通过了bagging和Random subspace method两个方法。为什么要用这两个方法呢? Randomness!
+前者是针对训练数据的随机选择，比如1000个实例中随机选择800个去生成树。
+它的强悍之处在我看来是因为wiki里的这句话 “Increasing the number of trees tends to decrease the variance of the model,
+without increasing the bias.” Decision Tree的问题之一就是容易overfitting,显然bagging很好的解决了这个问题（更多关于overfitting请参考<a href="http://bboxers.com/blog/2014/06/29/curse-learning-curve/">维数灾难到学习曲线</a>)。
+后者是针对feature去进行选择，比如从100个
+features里面去选择50个,这使得每一个子树都不完全相同。之后再根据正常的Decision Trees算法去生成树，这里有个参数（free parameter）需要用户选择，
+就是生成多少个trees，一般来讲，当然是越多越好了，最后根据各个trees的结果去投票(vote)，算出最终的结果。
+但是tree多了以后运算会超级慢，这是个不得不要考虑进去的问题，准确+慢 vs 不准确+快？
+这时候，Out-of-bag error就是判定生成多大树的标准之一了，<a href="http://www.quora.com/What-is-the-out-of-bag-error-in-Random-Forests">quora</a>有个很好的解释，
+大概就是说，在我们bagging的时候，从1000个实例选了800个，那么剩下的那200就组成了out-of-bag examples，
+我们可以把这200个实例组成测试的trees，这样通过测试trees就可以大概知道RandomForest的精确度。</p>
 
 </div>
-	    
-	    <div class="comments"><a href="/blog/2014/08/18/bic/#disqus_thread">Comments</a></div>
-	    
-	</div>
-</article>
-
-	
 
 
-<article>
-	<h2 class="title"><a href="/blog/2014/07/17/ggm/">高斯图模型 Gaussian graphical model</a></h2>
-	<div class="meta">
-		<div class="date">Jul 17</div>
-		<div class="tags">
-
-</div>
-	    
-	    <div class="comments"><a href="/blog/2014/07/17/ggm/#disqus_thread">Comments</a></div>
-	    
-	</div>
-</article>
-
-	
+<div class="meta">
+	<div class="date">
 
 
-<article>
-	<h2 class="title"><a href="/blog/2014/07/11/logister/">概率模型probabilistic Model(2) logistic回归</a></h2>
-	<div class="meta">
-		<div class="date">Jul 11</div>
-		<div class="tags">
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-01T22:57:00+01:00" pubdate data-updated="true">Sep 1<span>st</span>, 2014</time></div>
+	<div class="tags">
 
 </div>
-	    
-	    <div class="comments"><a href="/blog/2014/07/11/logister/#disqus_thread">Comments</a></div>
-	    
-	</div>
-</article>
-
 	
+		<div class="comments"><a href="/blog/2014/09/01/randomforest/#disqus_thread">Comments</a></div>
+	
+</div></article>
 
-
-<article>
-	<h2 class="title"><a href="/blog/2014/06/29/curse-learning-curve/">维数灾难到学习曲线(learning curve)</a></h2>
-	<div class="meta">
-		<div class="date">Jun 29</div>
-		<div class="tags">
-
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
 </div>
-	    
-	    <div class="comments"><a href="/blog/2014/06/29/curse-learning-curve/#disqus_thread">Comments</a></div>
-	    
-	</div>
-</article>
-
-	
 
 
-<article>
-	<h2 class="title"><a href="/blog/2014/06/29/curse-dim/">聊聊维数灾难(Curse of Dimensionality)</a></h2>
-	<div class="meta">
-		<div class="date">Jun 29</div>
-		<div class="tags">
 
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-	    
-	    <div class="comments"><a href="/blog/2014/06/29/curse-dim/#disqus_thread">Comments</a></div>
-	    
-	</div>
-</article>
-
-	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2014/06/24/models/">俯瞰Machine Learning</a></h2>
-	<div class="meta">
-		<div class="date">Jun 24</div>
-		<div class="tags">
-
-</div>
-	    
-	    <div class="comments"><a href="/blog/2014/06/24/models/#disqus_thread">Comments</a></div>
-	    
-	</div>
-</article>
-
-	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2014/06/18/perceptron/">感知器(Perceptron)的边边角角</a></h2>
-	<div class="meta">
-		<div class="date">Jun 18</div>
-		<div class="tags">
-
-</div>
-	    
-	    <div class="comments"><a href="/blog/2014/06/18/perceptron/#disqus_thread">Comments</a></div>
-	    
-	</div>
-</article>
-
-	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2014/06/16/probabilistic-models/">概率模型probabilistic models (1)</a></h2>
-	<div class="meta">
-		<div class="date">Jun 16</div>
-		<div class="tags">
-
-</div>
-	    
-	    <div class="comments"><a href="/blog/2014/06/16/probabilistic-models/#disqus_thread">Comments</a></div>
-	    
-	</div>
-</article>
-
-	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2014/06/15/hello-machine-learning/">Hello Machine Learning</a></h2>
-	<div class="meta">
-		<div class="date">Jun 15</div>
-		<div class="tags">
-
-</div>
-	    
-	    <div class="comments"><a href="/blog/2014/06/15/hello-machine-learning/#disqus_thread">Comments</a></div>
-	    
-	</div>
-</article>
-
-	
-
-
-	
-	
-		</section>
-	
-	<section class="archives"><h1 class="year">2013</h1>
-
-<article>
-	<h2 class="title"><a href="/blog/2013/03/17/kai-shi-bloglu-cheng/">Get Start</a></h2>
-	<div class="meta">
-		<div class="date">Mar 17</div>
-		<div class="tags">
-
-</div>
-	    
-	    <div class="comments"><a href="/blog/2013/03/17/kai-shi-bloglu-cheng/#disqus_thread">Comments</a></div>
-	    
-	</div>
-</article>
+</section>
 </div>
 	<footer id="footer" class="inner">Copyright &copy; 2014
 
@@ -296,7 +173,10 @@ MathJax.Hub.Config({
       var disqus_shortname = 'bboxerscom';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://fieryfish.github.com/blog/2014/09/01/randomforest/';
+        var disqus_url = 'http://fieryfish.github.com/blog/2014/09/01/randomforest/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
