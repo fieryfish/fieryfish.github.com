@@ -3,14 +3,13 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>BIC(bayesian information criterion)+likelihood function - JackYu@ML</title>
+	<title>Machine Learning与数学 - JackYu@ML</title>
 	<meta name="author" content="Yulong">
 
 	
-	<meta name="description" content="首先BIC是干什么的？用于比较在给定的数据下，比较不同模型的准则(criterion)。
-怎么比较呢？他会关注两件事情，一更好的拟合结果，二更少的参数。一很好理解，二这是要求
-一个相对更简单的模型去防止overfit这种事情。在想不起来的，请看这幅图。
-既然是比较模型，那它也属于model &hellip;">
+	<meta name="description" content="如果再给我一次机会(鄙人本科修数学)，我一定会学好一下三门课的。1 线代 2 最优化 3 概率统计
+Why？ 先说线代，如果说什么是最普遍的表现数据的话，那么大概也就是矩阵了，玩转线代也就是玩转矩阵，就这么简单。
+现在满世界都在聊SVD，而一个最直接的例子就是PCA，这里我先介绍一篇blog， &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -95,41 +94,22 @@ MathJax.Hub.Config({
 		
 	
 	<div id="content" class="inner"><article class="post">
-	<h2 class="title">BIC(bayesian Information Criterion)+likelihood Function</h2>
-	<div class="entry-content"><p>首先BIC是干什么的？用于比较在给定的数据下，比较不同模型的准则(criterion)。
-怎么比较呢？他会关注两件事情，一更好的拟合结果，二更少的参数。一很好理解，二这是要求
-一个相对更简单的模型去防止overfit这种事情。在想不起来的，请看这幅<a href="http://zoonek2.free.fr/UNIX/48_R/g883.png">图</a>。
-既然是比较模型，那它也属于model selection的范畴了。
-在<a href="http://en.wikipedia.org/wiki/Bayesian_information_criterion">wiki</a>上写了好多感觉还蛮啰嗦的，
-开始看了几遍也不怎么知道啥意思，其实主要的公式就是:(实例instance很多的情况下)</p>
+	<h2 class="title">Machine Learning与数学</h2>
+	<div class="entry-content"><p>如果再给我一次机会(鄙人本科修数学)，我一定会学好一下三门课的。1 线代 2 最优化 3 概率统计
+Why？</p>
 
-<script type="math/tex; mode=display">BIC = -2\cdot ln \hat{L}+k\cdot ln(n)</script>
+<p>先说线代，如果说什么是最普遍的表现数据的话，那么大概也就是矩阵了，玩转线代也就是玩转矩阵，就这么简单。
+现在满世界都在聊SVD，而一个最直接的例子就是PCA，这里我先介绍一篇<a href="http://blog.codinglabs.org/articles/pca-tutorial.html">blog</a>，写的非常好的。可以看出来，数据降维的关键就是如何寻找新的坐标系去表示数据，也就是同样的数据，如何用更加少的维度去表示更加多的信息。
+在寻找新的坐标系时，我们会用到协方差矩阵的对角化，eigenvector,eigenvalue等知识。在实施矩阵坐标变换，我们又会用到投影（projection）等知识。
+似乎不会线代，就算知道了PCA整体流程，心里也总是隐隐不安。如果英文还不错，那么<a href="http://book.douban.com/subject/3582335/">Introduction to Linear Algebra</a>配合Gilbert Strang 老师的公开课一定是你的不二选择。
+我相信就算大家以前学过这门课，也会再回头温习这们课的。</p>
 
-<p>$\hat{L}$是已经完成了像MLE这种参数估计以后，得到的最优参数的似然函数(Likelihood function)。k是参数的个数，n是实例的个数。
-一例胜千言，请大家直接翻到这个很棒的<a href="http://hea-www.cfa.harvard.edu/astrostat/Stat310_0910/dr_20100323_mle.pdf">ppt</a>，29页
-有一个简单的例子，相信看完这个例子的人基本也就明白是怎么回事了。</p>
+<p>再说最优化，给我体会最深的是，最优化和神经元网络简直就是孪生兄弟，相信大家都有在SVM的对偶，kkt，拉格朗日搞来搞去的经历。
+也会有思考梯度下降、牛顿法的过程。简单想想，从perceptron,MLP到SVM，都伴随着求解最小化损失函数的过程，相信这就是最优化的源头。我也一直怎么弄明白最优化，最近打算抱着<a href="http://book.douban.com/subject/1888111/">Convex Optimization</a>好好啃啃，再看看Stephen Boyd老师的公开课。</p>
 
-<p>这里有个很重要的叫做Likelihood function(似然函数)的概念，大家在Bayes rule里面应该也有看到过，然后在MLE(极大似然估计)里也有所耳闻。那么究竟它是怎么一回事呢？看个<a href="http://en.wikipedia.org/wiki/Likelihood_function">wiki</a>的例子，非常形象~
-在硬币游戏里，H代表head，正常来讲，投掷时候得到head的概率为<script type="math/tex">P_{H}=0.5</script>，那么投掷两次都是head的概率是：
-<script type="math/tex">P(HH | P_{H}=0.5) = 0.25</script>。如果用likelihood function去描述它，那么就是: <script type="math/tex">L(P_{H}=0.5 | HH)=P(HH | P_{H}=0.5) = 0.25</script>,
-它的含义并不是说给出了观察序列HH，我们得到概率<script type="math/tex">P_{H}=0.5</script>的概率是0.25。
-相应地：<script type="math/tex">L(P_{H}=1 | HH)=P(HH | P_{H}=1) = 1</script>,它的含义也并不是说给出了观察序列HH，我们得到概率<script type="math/tex">P_{H}=1</script>的概率是1,
-likelihood function不是概率密度（probability density function），下面的图便是我们该问题里<script type="math/tex">P_{H}</script>的分布，可以看出
-在观察序列都是HH的时候，我们更愿意相信<script type="math/tex">P_{H}=1</script>，这便完成了一次MLE的过程，在估计参数<script type="math/tex">P_{H}</script>的时候，我们更愿意相信
-这个参数的取值是1。</p>
+<p>最后就是概率统计。很多时候统计学家就是在搞机器学习，很难讲就是哪个属于统计，哪个属于机器学习。不过给我做直观的一个区别就是，统计经常是对已有的数据进行分析，比如各个统计量，一阶、二阶矩等都是有其意义的，可以用来解释数据。而像置信区间，假设检验什么的也都是用“科学的”方法表现数据的意义。而机器学习更多是通过已有的数据训练，再应用到未知数据。当然，好消息就是像基于概率统计的贝叶斯分类器，我们可以通过它知道分类时，测试数据分到各个类别的概率是多少，这样的概率也给了我们去解释为什么的依据。</p>
 
-<p><img class="left" src="/images/LikelihoodFunctionAfterHH.png" width="600" height="600" title="image" alt="The likelihood function for estimating the probability of a coin landing heads-up without prior knowledge after observing HH" /></p>
-
-<p>另一方面，后验概率(Posterior probability)相对于likelihood function是一个逆过程。
-如果是后验概率，这个问题就是<script type="math/tex">P(P_{H} | HH)</script>，其实没什么特别的，知道这个概念就好了，
-看到Bayes Rule:</p>
-
-<script type="math/tex; mode=display">
-P(A|B)=\frac{P(B|A)P(A)}{P(B)}
-</script>
-
-<p>大家也就知道,后验概率是<script type="math/tex">P(A|B)</script>，似然函数是<script type="math/tex">P(B|A)</script>
-,先验概率是<script type="math/tex">P(A)</script>.</p>
+<p>说了半天，其实我想说的时，这三门课在我看来是要伴随着对机器学习探索而不断重温的科目，各个算法都是基于前人不断迭代的过程，而数学就是这些的基石。</p>
 
 </div>
 
@@ -147,12 +127,12 @@ P(A|B)=\frac{P(B|A)P(A)}{P(B)}
   
 
 
-<time datetime="2014-08-18T23:14:00+08:00" pubdate data-updated="true">Aug 18<span>th</span>, 2014</time></div>
+<time datetime="2014-10-20T08:35:00+08:00" pubdate data-updated="true">Oct 20<span>th</span>, 2014</time></div>
 	<div class="tags">
 
 </div>
 	
-		<div class="comments"><a href="/blog/2014/08/18/bic/#disqus_thread">Comments</a></div>
+		<div class="comments"><a href="/blog/2014/10/20/nn/#disqus_thread">Comments</a></div>
 	
 </div></article>
 
@@ -193,8 +173,8 @@ P(A|B)=\frac{P(B|A)P(A)}{P(B)}
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://fieryfish.github.com/blog/2014/08/18/bic/';
-        var disqus_url = 'http://fieryfish.github.com/blog/2014/08/18/bic/';
+        var disqus_identifier = 'http://fieryfish.github.com/blog/2014/10/20/nn/';
+        var disqus_url = 'http://fieryfish.github.com/blog/2014/10/20/nn/';
         var disqus_script = 'embed.js';
       
     (function () {

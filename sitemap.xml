@@ -2,62 +2,66 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://fieryfish.github.com/blog/2013/03/17/kai-shi-bloglu-cheng/</loc>
-        <lastmod>2014-06-15T21:49:40+01:00</lastmod>
+        <lastmod>2014-06-16T04:49:40+08:00</lastmod>
     </url>
     <url>
         <loc>http://fieryfish.github.com/blog/2014/06/15/hello-machine-learning/</loc>
-        <lastmod>2014-06-17T11:04:13+01:00</lastmod>
+        <lastmod>2014-06-17T18:04:13+08:00</lastmod>
     </url>
     <url>
         <loc>http://fieryfish.github.com/blog/2014/06/16/probabilistic-models/</loc>
-        <lastmod>2014-06-16T22:20:36+01:00</lastmod>
+        <lastmod>2014-06-17T05:20:36+08:00</lastmod>
     </url>
     <url>
         <loc>http://fieryfish.github.com/blog/2014/06/18/perceptron/</loc>
-        <lastmod>2014-10-11T21:19:27+01:00</lastmod>
+        <lastmod>2014-10-12T04:19:27+08:00</lastmod>
     </url>
     <url>
         <loc>http://fieryfish.github.com/blog/2014/06/24/models/</loc>
-        <lastmod>2014-06-24T14:30:21+01:00</lastmod>
+        <lastmod>2014-06-24T21:30:21+08:00</lastmod>
     </url>
     <url>
         <loc>http://fieryfish.github.com/blog/2014/06/29/curse-dim/</loc>
-        <lastmod>2014-06-29T15:42:27+01:00</lastmod>
+        <lastmod>2014-06-29T22:42:27+08:00</lastmod>
     </url>
     <url>
         <loc>http://fieryfish.github.com/blog/2014/06/29/curse-learning-curve/</loc>
-        <lastmod>2014-06-29T19:06:39+01:00</lastmod>
+        <lastmod>2014-06-30T02:06:39+08:00</lastmod>
     </url>
     <url>
         <loc>http://fieryfish.github.com/blog/2014/07/11/logister/</loc>
-        <lastmod>2014-09-02T11:00:58+01:00</lastmod>
+        <lastmod>2014-09-02T18:00:58+08:00</lastmod>
     </url>
     <url>
         <loc>http://fieryfish.github.com/blog/2014/07/17/ggm/</loc>
-        <lastmod>2014-08-18T20:53:02+01:00</lastmod>
+        <lastmod>2014-08-19T03:53:02+08:00</lastmod>
     </url>
     <url>
         <loc>http://fieryfish.github.com/blog/2014/08/18/bic/</loc>
-        <lastmod>2014-09-01T22:57:29+01:00</lastmod>
+        <lastmod>2014-09-02T05:57:29+08:00</lastmod>
     </url>
     <url>
         <loc>http://fieryfish.github.com/blog/2014/09/01/randomforest/</loc>
-        <lastmod>2014-09-03T16:18:22+01:00</lastmod>
+        <lastmod>2014-09-03T23:18:22+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://fieryfish.github.com/blog/2014/10/20/nn/</loc>
+        <lastmod>2014-10-20T09:58:40+08:00</lastmod>
     </url>
     <url>
         <loc>http://fieryfish.github.com/about/</loc>
-        <lastmod>2014-06-26T19:55:15+01:00</lastmod>
+        <lastmod>2014-06-27T02:55:15+08:00</lastmod>
     </url>
     <url>
         <loc>http://fieryfish.github.com/blog/archives/</loc>
-        <lastmod>2014-10-11T21:19:27+01:00</lastmod>
+        <lastmod>2014-10-20T09:58:40+08:00</lastmod>
     </url>
     <url>
         <loc>http://fieryfish.github.com/</loc>
-        <lastmod>2014-10-11T21:19:27+01:00</lastmod>
+        <lastmod>2014-10-20T09:58:40+08:00</lastmod>
     </url>
     <url>
         <loc>http://fieryfish.github.com/robots.txt</loc>
-        <lastmod>2014-02-03T16:31:50+00:00</lastmod>
+        <lastmod>2014-02-04T00:31:50+08:00</lastmod>
     </url>
 </urlset>

@@ -7,9 +7,9 @@
 	<meta name="author" content="Yulong">
 
 	
-	<meta name="description" content="RandomForest在我印象里，是一个碉堡了的算法，因为用起来很简单，几乎不需要怎么调试就直接得到了很好地效果。
-所以这也是为什么在Kaggle的Titanic分类竞赛专门拿RandomForest举例.
-在学习RandomForest之前，请保证大家已经基本掌握了Decision Tree &hellip;">
+	<meta name="description" content="如果再给我一次机会(鄙人本科修数学)，我一定会学好一下三门课的。1 线代 2 最优化 3 概率统计
+Why？ 先说线代，如果说什么是最普遍的表现数据的话，那么大概也就是矩阵了，玩转线代也就是玩转矩阵，就这么简单。
+现在满世界都在聊SVD，而一个最直接的例子就是PCA，这里我先介绍一篇blog， &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -99,6 +99,59 @@ MathJax.Hub.Config({
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2014/10/20/nn/">
+		
+			Machine Learning与数学</a>
+	</h2>
+	<div class="entry-content">
+		<p>如果再给我一次机会(鄙人本科修数学)，我一定会学好一下三门课的。1 线代 2 最优化 3 概率统计
+Why？</p>
+
+<p>先说线代，如果说什么是最普遍的表现数据的话，那么大概也就是矩阵了，玩转线代也就是玩转矩阵，就这么简单。
+现在满世界都在聊SVD，而一个最直接的例子就是PCA，这里我先介绍一篇<a href="http://blog.codinglabs.org/articles/pca-tutorial.html">blog</a>，写的非常好的。可以看出来，数据降维的关键就是如何寻找新的坐标系去表示数据，也就是同样的数据，如何用更加少的维度去表示更加多的信息。
+在寻找新的坐标系时，我们会用到协方差矩阵的对角化，eigenvector,eigenvalue等知识。在实施矩阵坐标变换，我们又会用到投影（projection）等知识。
+似乎不会线代，就算知道了PCA整体流程，心里也总是隐隐不安。如果英文还不错，那么<a href="http://book.douban.com/subject/3582335/">Introduction to Linear Algebra</a>配合Gilbert Strang 老师的公开课一定是你的不二选择。
+我相信就算大家以前学过这门课，也会再回头温习这们课的。</p>
+
+<p>再说最优化，给我体会最深的是，最优化和神经元网络简直就是孪生兄弟，相信大家都有在SVM的对偶，kkt，拉格朗日搞来搞去的经历。
+也会有思考梯度下降、牛顿法的过程。简单想想，从perceptron,MLP到SVM，都伴随着求解最小化损失函数的过程，相信这就是最优化的源头。我也一直怎么弄明白最优化，最近打算抱着<a href="http://book.douban.com/subject/1888111/">Convex Optimization</a>好好啃啃，再看看Stephen Boyd老师的公开课。</p>
+
+<p>最后就是概率统计。很多时候统计学家就是在搞机器学习，很难讲就是哪个属于统计，哪个属于机器学习。不过给我做直观的一个区别就是，统计经常是对已有的数据进行分析，比如各个统计量，一阶、二阶矩等都是有其意义的，可以用来解释数据。而像置信区间，假设检验什么的也都是用“科学的”方法表现数据的意义。而机器学习更多是通过已有的数据训练，再应用到未知数据。当然，好消息就是像基于概率统计的贝叶斯分类器，我们可以通过它知道分类时，测试数据分到各个类别的概率是多少，这样的概率也给了我们去解释为什么的依据。</p>
+
+<p>说了半天，其实我想说的时，这三门课在我看来是要伴随着对机器学习探索而不断重温的科目，各个算法都是基于前人不断迭代的过程，而数学就是这些的基石。</p>
+
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-10-20T08:35:00+08:00" pubdate data-updated="true">Oct 20<span>th</span>, 2014</time></div>
+	<div class="tags">
+
+</div>
+	
+		<div class="comments"><a href="/blog/2014/10/20/nn//index.html#disqus_thread">Comments</a></div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2014/09/01/randomforest/">
 		
 			RandomForest(随机森林)</a>
@@ -140,7 +193,7 @@ features里面去选择50个,这使得每一个子树都不完全相同。之后
   
 
 
-<time datetime="2014-09-01T22:57:00+01:00" pubdate data-updated="true">Sep 1<span>st</span>, 2014</time></div>
+<time datetime="2014-09-01T22:57:00+08:00" pubdate data-updated="true">Sep 1<span>st</span>, 2014</time></div>
 	<div class="tags">
 
 </div>
@@ -212,7 +265,7 @@ P(A|B)=\frac{P(B|A)P(A)}{P(B)}
   
 
 
-<time datetime="2014-08-18T23:14:00+01:00" pubdate data-updated="true">Aug 18<span>th</span>, 2014</time></div>
+<time datetime="2014-08-18T23:14:00+08:00" pubdate data-updated="true">Aug 18<span>th</span>, 2014</time></div>
 	<div class="tags">
 
 </div>
@@ -291,7 +344,7 @@ Lecture 25有它的详细介绍，如果论文看不明白可以参考这个教�
   
 
 
-<time datetime="2014-07-17T10:18:00+01:00" pubdate data-updated="true">Jul 17<span>th</span>, 2014</time></div>
+<time datetime="2014-07-17T10:18:00+08:00" pubdate data-updated="true">Jul 17<span>th</span>, 2014</time></div>
 	<div class="tags">
 
 </div>
@@ -385,7 +438,7 @@ discriminative model &amp; generative model请大家好好注意一下，这个
   
 
 
-<time datetime="2014-07-11T00:18:00+01:00" pubdate data-updated="true">Jul 11<span>th</span>, 2014</time></div>
+<time datetime="2014-07-11T00:18:00+08:00" pubdate data-updated="true">Jul 11<span>th</span>, 2014</time></div>
 	<div class="tags">
 
 </div>
@@ -454,7 +507,7 @@ bias/variance的概念也是要涉及到的。)</p>
   
 
 
-<time datetime="2014-06-29T15:47:00+01:00" pubdate data-updated="true">Jun 29<span>th</span>, 2014</time></div>
+<time datetime="2014-06-29T15:47:00+08:00" pubdate data-updated="true">Jun 29<span>th</span>, 2014</time></div>
 	<div class="tags">
 
 </div>
@@ -536,7 +589,7 @@ kernel method是机器学习很重要的一块，并不是说一定只能使用�
   
 
 
-<time datetime="2014-06-29T14:17:00+01:00" pubdate data-updated="true">Jun 29<span>th</span>, 2014</time></div>
+<time datetime="2014-06-29T14:17:00+08:00" pubdate data-updated="true">Jun 29<span>th</span>, 2014</time></div>
 	<div class="tags">
 
 </div>
@@ -603,7 +656,7 @@ Probabilistic model的思想则更多是源自数学喽(尤其是概率与统计
   
 
 
-<time datetime="2014-06-24T12:01:00+01:00" pubdate data-updated="true">Jun 24<span>th</span>, 2014</time></div>
+<time datetime="2014-06-24T12:01:00+08:00" pubdate data-updated="true">Jun 24<span>th</span>, 2014</time></div>
 	<div class="tags">
 
 </div>
@@ -693,7 +746,7 @@ Perceptron的模型很简单，重点是要在适当的时刻选择一些适当�
   
 
 
-<time datetime="2014-06-18T19:17:00+01:00" pubdate data-updated="true">Jun 18<span>th</span>, 2014</time></div>
+<time datetime="2014-06-18T19:17:00+08:00" pubdate data-updated="true">Jun 18<span>th</span>, 2014</time></div>
 	<div class="tags">
 
 </div>
@@ -803,82 +856,12 @@ P(Y_{长春}|X_{朝阳区})\cdot P(Y_{长春}) < P(Y_{北京}|X_{朝阳区})\cdo
   
 
 
-<time datetime="2014-06-16T15:34:00+01:00" pubdate data-updated="true">Jun 16<span>th</span>, 2014</time></div>
+<time datetime="2014-06-16T15:34:00+08:00" pubdate data-updated="true">Jun 16<span>th</span>, 2014</time></div>
 	<div class="tags">
 
 </div>
 	
 		<div class="comments"><a href="/blog/2014/06/16/probabilistic-models//index.html#disqus_thread">Comments</a></div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2014/06/15/hello-machine-learning/">
-		
-			Hello Machine Learning</a>
-	</h2>
-	<div class="entry-content">
-		<p>‘hello world’似乎像是技术的入场礼，不同的人总在开始的时候用尽一些办法，就是为了看到’hello XXX’这几个字母
-闪现在屏幕的那一刹那。现在我也盗用这个仪式，开始聊聊我对于Machine Learning(ML)的理解。
-我觉得学东西直观的感觉(intuition)和基于问题的学习很重要啊，尤其是抽象的东西，比如: ML -_-!
-所以我会主要通过这样方式谈谈我理解。同样，一些拼写标点错误也请大家见谅，从小考试都是丢三落四，所以老师
-都给我起了个外号”准优等”。文笔我也不会很严谨，毕竟哀家才是研究僧，说话不会像公知一样对大家负责。
-该啰嗦的就啰嗦到这里了~</p>
-
-<p>总有一些事情是你一看上去就决定要终身相伴的，这可能就是我一看到machine learning的感觉吧。
-还记得一年半前，我还是一个ruby on rails程序员，也是个应届生，在一家创业公司做码农。所以对于一切都是充满好奇，却也是很傻很天真。
-总爱问别人很幼稚的问题，例如：
-你为啥学这个啊？你觉得我学啥对我有帮助啊？等等这些。。
-直到我发现一本书，<a href="http://book.douban.com/subject/3288908/">集体智慧编程(Programming Collective Intelligence)</a>，我觉得我的下一步应该是学这样子的知识！
-看起来很有用，而且也很高大上的样子。而且，恰好当时公司一个技术大牛也开始研究这个领域。我就抱大腿似的
-准备跟他一起搞。后来，经过一阵小小研究后，我们竟然真的做成了一些项目，那会真是兴奋地不行不行的。后面会具体介绍。</p>
-
-<p>其实我相信对于初学者，每个人都会觉得’我擦，这东西太难了吧！怎么需要学那么多东西。而且，它需要说得过去的数学功底。’
-是的，这是事实，毋庸置疑，要不岂不是谁都可以研究它了么。但是说白了，机器学习算法(algorithm)或者模型(model)本质来说就是一个
-映射(mapping)而已，你所要的不就是将你的输入(input)得到个输出(output)么，而且那些复杂的算法往往开始的起因都是很简单的，
-很多复杂的地方往往都是后期人们缝缝补补、增增减减的结果。这点，吴军老师在<a href="http://book.douban.com/subject/10750155/">数学之美</a>早有论述，我也对此坚信不疑，对了，这是一本好书。
-但是，我在强调一下，但是，一些基础的先验知识很重要。已<a href="http://book.douban.com/subject/1102235/">机器学习(Tom Mitchell)</a>为例，概念学习那张我至少看了4遍，
-还是没懂它在讲啥，什么归纳偏置(inductive bias)，假设空间，目标函数都不知道整这些概念干嘛使。
-所以嘞，我的建议就是，弄了半天还不会的就搁一边，他会再出现的，到时候你肯定会如梦方醒的，因为慢慢积累这些概念以后，
-会发现他们很多都是相通的，去弄懂某个孤立点的难度肯定比掌握点和点联系、区别困难很多。</p>
-
-<p>最后我想说说我认为的学习机器学习的技巧吧。1 会<strong>读英文</strong>。不然，就只能看<a href="http://book.douban.com/subject/1102235/">机器学习(Tom Mitchell)</a>了吧。
-可能也有别的选择，但我去年去清华蹭课他们用的就是这个教材，要是不靠老师讲解而是自学，蛮难的。
-有些人很容易有个误会，就是会英文这门槛太高了，其实啊，专业词语就那么多，而且读英文的难度远远小于说和写，
-开始慢慢来，之后就会很舒服了。2 <strong>直观理解</strong>。很多公式用一个图就解释的明明白白的。3 <strong>结合实践</strong>。看了不一定会明白，
-明白了不一定理解，理解了不一定会做，做的话可以去(Kaggle.com)练练手。4 <strong>讲给别人</strong>。
-我曾经问过我导师，我什么时候才能像你一样对于ML侃侃而谈，他笑着对我说:”等你可以把他讲给别人，让别人也理解，对于
-他们的问题你可以解答。”这，就是为什么我开始写这个博客吧，而且，这是捷径。
-5 <strong>基础知识</strong>,尽管数学面积很大，但至少梯度下降，贝叶斯这些必备知识要完全掌握。</p>
-
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-06-15T18:16:00+01:00" pubdate data-updated="true">Jun 15<span>th</span>, 2014</time></div>
-	<div class="tags">
-
-</div>
-	
-		<div class="comments"><a href="/blog/2014/06/15/hello-machine-learning//index.html#disqus_thread">Comments</a></div>
 	
 </div></article>
 

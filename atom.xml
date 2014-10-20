@@ -4,7 +4,7 @@
   <title><![CDATA[JackYu@ML]]></title>
   <link href="http://fieryfish.github.com/atom.xml" rel="self"/>
   <link href="http://fieryfish.github.com/"/>
-  <updated>2014-10-11T21:19:58+01:00</updated>
+  <updated>2014-10-20T09:59:17+08:00</updated>
   <id>http://fieryfish.github.com/</id>
   <author>
     <name><![CDATA[Yulong]]></name>
@@ -14,9 +14,33 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Machine Learning与数学]]></title>
+    <link href="http://fieryfish.github.com/blog/2014/10/20/nn/"/>
+    <updated>2014-10-20T08:35:00+08:00</updated>
+    <id>http://fieryfish.github.com/blog/2014/10/20/nn</id>
+    <content type="html"><![CDATA[<p>如果再给我一次机会(鄙人本科修数学)，我一定会学好一下三门课的。1 线代 2 最优化 3 概率统计
+Why？</p>
+
+<p>先说线代，如果说什么是最普遍的表现数据的话，那么大概也就是矩阵了，玩转线代也就是玩转矩阵，就这么简单。
+现在满世界都在聊SVD，而一个最直接的例子就是PCA，这里我先介绍一篇<a href="http://blog.codinglabs.org/articles/pca-tutorial.html">blog</a>，写的非常好的。可以看出来，数据降维的关键就是如何寻找新的坐标系去表示数据，也就是同样的数据，如何用更加少的维度去表示更加多的信息。
+在寻找新的坐标系时，我们会用到协方差矩阵的对角化，eigenvector,eigenvalue等知识。在实施矩阵坐标变换，我们又会用到投影（projection）等知识。
+似乎不会线代，就算知道了PCA整体流程，心里也总是隐隐不安。如果英文还不错，那么<a href="http://book.douban.com/subject/3582335/">Introduction to Linear Algebra</a>配合Gilbert Strang 老师的公开课一定是你的不二选择。
+我相信就算大家以前学过这门课，也会再回头温习这们课的。</p>
+
+<p>再说最优化，给我体会最深的是，最优化和神经元网络简直就是孪生兄弟，相信大家都有在SVM的对偶，kkt，拉格朗日搞来搞去的经历。
+也会有思考梯度下降、牛顿法的过程。简单想想，从perceptron,MLP到SVM，都伴随着求解最小化损失函数的过程，相信这就是最优化的源头。我也一直怎么弄明白最优化，最近打算抱着<a href="http://book.douban.com/subject/1888111/">Convex Optimization</a>好好啃啃，再看看Stephen Boyd老师的公开课。</p>
+
+<p>最后就是概率统计。很多时候统计学家就是在搞机器学习，很难讲就是哪个属于统计，哪个属于机器学习。不过给我做直观的一个区别就是，统计经常是对已有的数据进行分析，比如各个统计量，一阶、二阶矩等都是有其意义的，可以用来解释数据。而像置信区间，假设检验什么的也都是用“科学的”方法表现数据的意义。而机器学习更多是通过已有的数据训练，再应用到未知数据。当然，好消息就是像基于概率统计的贝叶斯分类器，我们可以通过它知道分类时，测试数据分到各个类别的概率是多少，这样的概率也给了我们去解释为什么的依据。</p>
+
+<p>说了半天，其实我想说的时，这三门课在我看来是要伴随着对机器学习探索而不断重温的科目，各个算法都是基于前人不断迭代的过程，而数学就是这些的基石。</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[RandomForest(随机森林)]]></title>
     <link href="http://fieryfish.github.com/blog/2014/09/01/randomforest/"/>
-    <updated>2014-09-01T22:57:00+01:00</updated>
+    <updated>2014-09-01T22:57:00+08:00</updated>
     <id>http://fieryfish.github.com/blog/2014/09/01/randomforest</id>
     <content type="html"><![CDATA[<p>RandomForest在我印象里，是一个碉堡了的算法，因为用起来很简单，几乎不需要怎么调试就直接得到了很好地效果。
 所以这也是为什么在Kaggle的Titanic分类竞赛专门拿RandomForest<a href="http://www.kaggle.com/c/titanic-gettingStarted/details/getting-started-with-random-forests">举例</a>.
@@ -41,7 +65,7 @@ features里面去选择50个,这使得每一个子树都不完全相同。之后
   <entry>
     <title type="html"><![CDATA[BIC(bayesian information criterion)+likelihood function]]></title>
     <link href="http://fieryfish.github.com/blog/2014/08/18/bic/"/>
-    <updated>2014-08-18T23:14:00+01:00</updated>
+    <updated>2014-08-18T23:14:00+08:00</updated>
     <id>http://fieryfish.github.com/blog/2014/08/18/bic</id>
     <content type="html"><![CDATA[<p>首先BIC是干什么的？用于比较在给定的数据下，比较不同模型的准则(criterion)。
 怎么比较呢？他会关注两件事情，一更好的拟合结果，二更少的参数。一很好理解，二这是要求
@@ -84,7 +108,7 @@ P(A|B)=\frac{P(B|A)P(A)}{P(B)}
   <entry>
     <title type="html"><![CDATA[高斯图模型 Gaussian graphical model]]></title>
     <link href="http://fieryfish.github.com/blog/2014/07/17/ggm/"/>
-    <updated>2014-07-17T10:18:00+01:00</updated>
+    <updated>2014-07-17T10:18:00+08:00</updated>
     <id>http://fieryfish.github.com/blog/2014/07/17/ggm</id>
     <content type="html"><![CDATA[<p>如果说以前的一些文章还有加入自己的思考的话，那这篇可能是最客观的表述。其实
 Gaussian graphical model(GGM)资料还真的蛮少的，我本来也想找找书籍去学习下，结果到最后还是
@@ -134,7 +158,7 @@ Lecture 25有它的详细介绍，如果论文看不明白可以参考这个教�
   <entry>
     <title type="html"><![CDATA[概率模型probabilistic Model(2) logistic回归]]></title>
     <link href="http://fieryfish.github.com/blog/2014/07/11/logister/"/>
-    <updated>2014-07-11T00:18:00+01:00</updated>
+    <updated>2014-07-11T00:18:00+08:00</updated>
     <id>http://fieryfish.github.com/blog/2014/07/11/logister</id>
     <content type="html"><![CDATA[<p>故事是这样的，在概率模型世界，我们要面对的问题就是这样的一个公式：
 <script type="math/tex">p(y|\bar{x})</script>,
@@ -199,7 +223,7 @@ discriminative model &amp; generative model请大家好好注意一下，这个
   <entry>
     <title type="html"><![CDATA[维数灾难到学习曲线(learning curve)]]></title>
     <link href="http://fieryfish.github.com/blog/2014/06/29/curse-learning-curve/"/>
-    <updated>2014-06-29T15:47:00+01:00</updated>
+    <updated>2014-06-29T15:47:00+08:00</updated>
     <id>http://fieryfish.github.com/blog/2014/06/29/curse-learning-curve</id>
     <content type="html"><![CDATA[<p><a href="http://bboxers.com/blog/2014/06/29/curse-dim/">上一篇</a>简单聊了聊维数灾难，
 这节就10只小猫小狗的例子稍微延伸一下，假设现在给你100只猫猫狗狗，3维已经不能满足线性可分了，这时候
@@ -239,7 +263,7 @@ bias/variance的概念也是要涉及到的。)</p>
   <entry>
     <title type="html"><![CDATA[聊聊维数灾难(Curse of Dimensionality)]]></title>
     <link href="http://fieryfish.github.com/blog/2014/06/29/curse-dim/"/>
-    <updated>2014-06-29T14:17:00+01:00</updated>
+    <updated>2014-06-29T14:17:00+08:00</updated>
     <id>http://fieryfish.github.com/blog/2014/06/29/curse-dim</id>
     <content type="html"><![CDATA[<p>本文原文摘自<a href="http://www.visiondummy.com/2014/04/curse-dimensionality-affect-classification/">这里</a>,作部分修改。</p>
 
@@ -292,7 +316,7 @@ kernel method是机器学习很重要的一块，并不是说一定只能使用�
   <entry>
     <title type="html"><![CDATA[俯瞰Machine Learning]]></title>
     <link href="http://fieryfish.github.com/blog/2014/06/24/models/"/>
-    <updated>2014-06-24T12:01:00+01:00</updated>
+    <updated>2014-06-24T12:01:00+08:00</updated>
     <id>http://fieryfish.github.com/blog/2014/06/24/models</id>
     <content type="html"><![CDATA[<p>这篇的内容主要是摘自<a href="http://book.douban.com/subject/11453073/">Machine Learning</a>
 这本书第一章节，我觉得蛮有收获的，希望可以提供一个不一样的角度。
@@ -330,7 +354,7 @@ Probabilistic model的思想则更多是源自数学喽(尤其是概率与统计
   <entry>
     <title type="html"><![CDATA[感知器(Perceptron)里的选择题]]></title>
     <link href="http://fieryfish.github.com/blog/2014/06/18/perceptron/"/>
-    <updated>2014-06-18T19:17:00+01:00</updated>
+    <updated>2014-06-18T19:17:00+08:00</updated>
     <id>http://fieryfish.github.com/blog/2014/06/18/perceptron</id>
     <content type="html"><![CDATA[<p>感知器是相当重要的，原因很简单，它是Network的基础，不论是ANN，SVM，他们都有着类似基于感知器的神经元网络结构。
 这也是为什么我在学校修Neural Network这门课时，光Perceptron的作业就占了50%的分数。
@@ -391,7 +415,7 @@ Perceptron的模型很简单，重点是要在适当的时刻选择一些适当�
   <entry>
     <title type="html"><![CDATA[概率模型probabilistic models (1)]]></title>
     <link href="http://fieryfish.github.com/blog/2014/06/16/probabilistic-models/"/>
-    <updated>2014-06-16T15:34:00+01:00</updated>
+    <updated>2014-06-16T15:34:00+08:00</updated>
     <id>http://fieryfish.github.com/blog/2014/06/16/probabilistic-models</id>
     <content type="html"><![CDATA[<p>之前说到我在公司是做Ruby on rails程序员，后来转到数据这块（小公司+好老板的好处就是可以无损的转去做自己喜欢的项目），
 面临的第一个项目就是做一个分类器，而我第一个采用的第一个模型就是概率模型(probabilistic models)，
@@ -472,7 +496,7 @@ P(Y_{长春}|X_{朝阳区})\cdot P(Y_{长春}) < P(Y_{北京}|X_{朝阳区})\cdo
   <entry>
     <title type="html"><![CDATA[Hello Machine Learning]]></title>
     <link href="http://fieryfish.github.com/blog/2014/06/15/hello-machine-learning/"/>
-    <updated>2014-06-15T18:16:00+01:00</updated>
+    <updated>2014-06-15T18:16:00+08:00</updated>
     <id>http://fieryfish.github.com/blog/2014/06/15/hello-machine-learning</id>
     <content type="html"><![CDATA[<p>‘hello world’似乎像是技术的入场礼，不同的人总在开始的时候用尽一些办法，就是为了看到’hello XXX’这几个字母
 闪现在屏幕的那一刹那。现在我也盗用这个仪式，开始聊聊我对于Machine Learning(ML)的理解。
@@ -513,7 +537,7 @@ P(Y_{长春}|X_{朝阳区})\cdot P(Y_{长春}) < P(Y_{北京}|X_{朝阳区})\cdo
   <entry>
     <title type="html"><![CDATA[Get Start]]></title>
     <link href="http://fieryfish.github.com/blog/2013/03/17/kai-shi-bloglu-cheng/"/>
-    <updated>2013-03-17T18:44:00+00:00</updated>
+    <updated>2013-03-17T18:44:00+08:00</updated>
     <id>http://fieryfish.github.com/blog/2013/03/17/kai-shi-bloglu-cheng</id>
     <content type="html"><![CDATA[<p>一直说要搞个blog写写东西，结果拖拖拉拉一直到现在，很早之前读<a href="http://book.douban.com/subject/6709809/">暗时间</a>的时候就想搭建一个blog去总结一下知识，如今终于开始这个旅程了。我分享的东西也主要是自己的总结，如果偶尔有些话能帮助到各位看官我也就心满意足了。</p>
 
